@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Deleting DB ...'
+docker ps -a -q -f name=postgres_14 | xargs docker rm -f

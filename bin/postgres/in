@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Exec DB Container ...'
+docker exec -it postgres_14 /bin/bash

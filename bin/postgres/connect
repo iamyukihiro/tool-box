@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Connecting DB ...'
+psql "postgresql://test:pass@127.0.0.1:5433/test_db"
