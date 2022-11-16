@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Destroy Mongo ...'
+rm -rf /var/mongo/data

@@ -1,0 +1,14 @@
+#!/bin/sh
+# shellcheck disable=SC2164
+# shellcheck disable=SC2086
+# shellcheck disable=SC2034
+# shellcheck disable=SC2039
+
+NETWORK_NAME='mongo-network'
+
+MONGO_CONTAINER_NAME='mongo4_4'
+MONGO_EXPRESS_CONTAINER_NAME='mongo-express_1_0_0'
+
+MONGO_ROOT_USERNAME='root'
+MONGO_ROOT_PASSWORD='pass'
+MONGO_DATABASE_NAME='test_db'

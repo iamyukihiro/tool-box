@@ -1,0 +1,10 @@
+#!/bin/sh
+# shellcheck disable=SC2164
+# shellcheck disable=SC2086
+# shellcheck disable=SC2034
+# shellcheck disable=SC2039
+
+source ${PWD}/bin/mongo/env
+
+echo 'Connecting Mongo ...'
+docker exec -it $MONGO_CONTAINER_NAME mongo -u $MONGO_ROOT_USERNAME -p $MONGO_ROOT_PASSWORD

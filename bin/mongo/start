@@ -1,0 +1,29 @@
+#!/bin/sh
+# shellcheck disable=SC2164
+# shellcheck disable=SC2086
+# shellcheck disable=SC2034
+# shellcheck disable=SC2039
+
+source ${PWD}/bin/mongo/env
+
+echo 'Create Network ...'
+docker network create $NETWORK_NAME
+
+echo 'Starting Mongo ...'
+docker run -itd --name $MONGO_CONTAINER_NAME \
+  --network $NETWORK_NAME \
+  -v ${PWD}/var/mongo/data:/data \
+  -e MONGO_INITDB_ROOT_USERNAME=$MONGO_ROOT_USERNAME \
+  -e MONGO_INITDB_ROOT_PASSWORD=$MONGO_ROOT_PASSWORD \
+  -e MONGO_DATABASE=$MONGO_DATABASE_NAME \
+  -p 27018:27017 \
+  mongo:4.4-rc
+
+echo 'Starting Mongo Express ...'
+docker run -d --name $MONGO_EXPRESS_CONTAINER_NAME \
+  --network $NETWORK_NAME \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=$MONGO_ROOT_USERNAME \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=$MONGO_ROOT_PASSWORD \
+  -e ME_CONFIG_MONGODB_SERVER=$MONGO_CONTAINER_NAME \
+  -p 8082:8081 \
+  mongo-express:1.0.0-alpha

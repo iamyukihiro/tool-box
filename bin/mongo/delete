@@ -1,0 +1,18 @@
+#!/bin/sh
+# shellcheck disable=SC2164
+# shellcheck disable=SC2086
+# shellcheck disable=SC2034
+# shellcheck disable=SC2039
+
+source ${PWD}/bin/mongo/env
+
+echo 'Deleting Mongo ...'
+
+docker ps -a -q -f name=$MONGO_CONTAINER_NAME | xargs docker rm -f
+
+echo 'Deleting Mongo Express ...'
+
+docker ps -a -q -f name=$MONGO_EXPRESS_CONTAINER_NAME | xargs docker rm -f
+
+echo 'Deleting Network ...'
+docker network rm $NETWORK_NAME
