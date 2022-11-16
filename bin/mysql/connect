@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Connecting DB ...'
+mysql --defaults-extra-file=${PWD}/bin/db/config/identity.conf

@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Exec DB Container ...'
+docker exec -it mysql_8_0 /bin/bash

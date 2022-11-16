@@ -1,0 +1,3 @@
+#!/bin/sh
+echo 'Destroy DB ...'
+rm -rf /var/mysql/data
