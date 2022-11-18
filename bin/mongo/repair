@@ -1,0 +1,8 @@
+#!/bin/sh
+# shellcheck disable=SC2164
+# shellcheck disable=SC2086
+# shellcheck disable=SC2034
+# shellcheck disable=SC2039
+
+sh ${PWD}/bin/mongo/delete
+sh ${PWD}/bin/mongo/start
